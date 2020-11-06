@@ -1,0 +1,11 @@
+SetEnv PHP_VER 5_3
+SetEnv REGISTER_GLOBALS 0
+RewriteEngine On
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://wolfmobileapps.com [R,L]
+
+RewriteCond %{HTTP_HOST} ^www
+RewriteRule ^(.*)$ https://wolfmobileapps.com [R=301,L,QSA]
+
+RewriteCond %{REQUEST_URI} !^/(css|en|img|js|pl|privacy|vendor) [NC]
+RewriteRule ^(.*)$ /pl/ [R=301,L,QSA]
